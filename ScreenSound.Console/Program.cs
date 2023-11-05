@@ -1,5 +1,8 @@
 ﻿
 
+using System.Text.Json;
+using ScreenSound.Model;
+
 using (var client = new HttpClient())
 {
     try
@@ -7,6 +10,10 @@ using (var client = new HttpClient())
         string baseURL = "https://guilhermeonrails.github.io/api-csharp-songs/songs.json";
         string resp =  await client.GetStringAsync(baseURL);
         Console.WriteLine(resp);
+
+        // o ! = fala para o compilador que não vira nulo
+        var musicas = JsonSerializer.Deserialize<List<Musica>>(resp)!;
+        musicas[1].ExibirDetalheDaMusica();
     }
     catch (Exception error)
     {
