@@ -16,6 +16,11 @@ namespace ScreenSound.Model
 
         [JsonPropertyName("genre")]
         public string? Genero { get; set; }
+
+        [JsonPropertyName("year")]
+        [JsonConverter(typeof(IntConverter))]
+        public int Ano { get; set; }
+
         #endregion
 
         #region  Métodos
@@ -25,6 +30,7 @@ namespace ScreenSound.Model
             Console.WriteLine($"Musica: {Nome}");
             Console.WriteLine($"Duração: {Duracao / 1000}");
             Console.WriteLine($"Genêro: {Genero}");
+            Console.WriteLine($"Ano: {Ano}");
         }
         #endregion
 
