@@ -28,8 +28,15 @@ using (var client = new HttpClient())
         //4 - Filtrar as músicas de um artista.
         //LinqFilter.FiltrarMusicaPorArtista(musicas,"2Pac");
         
-        LinqFilter.FiltrarMusicasPorAno(musicas, 2012);
+        //LinqFilter.FiltrarMusicasPorAno(musicas, 2012);
 
+        var musicasPreferidasDavid = new MusicasPreferidas("David");
+
+        for (int i = 0; i <= 5; i++)
+            musicasPreferidasDavid.adicionarMusicasFavoritas(musicas[i]);
+
+        musicasPreferidasDavid.ExibirMusicasFavoritas();
+        musicasPreferidasDavid.GerarArquivoJson();
     }
     catch (Exception error)
     {

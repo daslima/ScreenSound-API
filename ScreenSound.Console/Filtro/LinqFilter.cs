@@ -70,8 +70,6 @@ namespace ScreenSound.Console.Filtro
             }
                 
         }
-
-
         #endregion
     }
 }
