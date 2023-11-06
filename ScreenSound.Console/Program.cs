@@ -1,6 +1,7 @@
 ﻿
 
 using System.Text.Json;
+using ScreenSound.Console.Filtro;
 using ScreenSound.Model;
 
 using (var client = new HttpClient())
@@ -27,7 +28,7 @@ using (var client = new HttpClient())
         //4 - Filtrar as músicas de um artista.
         //LinqFilter.FiltrarMusicaPorArtista(musicas,"2Pac");
         
-        //LinqFilter.FiltrarMusicasPorAno(musicas, 2012);
+        LinqFilter.FiltrarMusicasPorAno(musicas, 2012);
 
     }
     catch (Exception error)
