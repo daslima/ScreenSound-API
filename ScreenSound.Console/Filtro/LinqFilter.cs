@@ -58,6 +58,15 @@ namespace ScreenSound.Console.Filtro
                 System.Console.WriteLine($"- {musica}");
         }
 
+        public static void FiltrarMusicasPorTonalidade(IList<Musica> musicas, string tonalidade)
+        {
+            var musicasPorTonalidade = musicas.Where(m => m.Tonalidade!.Equals(tonalidade));
+
+            System.Console.WriteLine($"Musicas na tonalidade de : {tonalidade}");
+            foreach (var musica in musicasPorTonalidade)
+                System.Console.WriteLine($"- {musica.Tonalidade} / {musica.Nome}");
+        }
+
         public static void OrdenarArtistasPorGenero(IList<Musica> musicas)
         {
             var artistasPorgenero = from artista in musicas

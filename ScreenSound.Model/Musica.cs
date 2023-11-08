@@ -4,7 +4,12 @@ namespace ScreenSound.Model
 {
     public class Musica
     {
+        private readonly string[] _tonalidades = {"C", "C#", "D","D#","E","F","F#","G","G#","A","A#","B"};
+
         #region  Propriedades
+        [JsonPropertyName("key")]
+        public int ChaveKey { get; set; }
+
         [JsonPropertyName("song")]
         public string? Nome { get; set; }
 
@@ -21,6 +26,13 @@ namespace ScreenSound.Model
         [JsonConverter(typeof(IntConverter))]
         public int Ano { get; set; }
 
+        public string? Tonalidade { 
+            get 
+            {
+                return _tonalidades[ChaveKey];
+            } 
+        }
+
         #endregion
 
         #region  Métodos
@@ -31,6 +43,7 @@ namespace ScreenSound.Model
             Console.WriteLine($"Duração: {Duracao / 1000}");
             Console.WriteLine($"Genêro: {Genero}");
             Console.WriteLine($"Ano: {Ano}");
+            Console.WriteLine($"Tonalidade: {Tonalidade}");
         }
         #endregion
 
